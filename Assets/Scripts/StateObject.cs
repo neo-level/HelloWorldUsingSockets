@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Net.Sockets;
 
-public class StateObject : MonoBehaviour
+public class StateObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public byte[] Buffer { get; } 
+   public Socket Socket { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public StateObject(Socket socket, int bufferSize = 1024)
+   {
+      Buffer = new byte[bufferSize];
+      Socket = socket;
+   }
 }
